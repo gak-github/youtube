@@ -5,7 +5,13 @@ export default (state, action) => {
         ...state,
         loading: true,
         videos: action.payload,
-        term: action.term
+        term: action.term,
+        selectedVideo: action.payload.length > 0 ? action.payload[0] : ''
+      }
+    case "SET_SELECTED_VIDEO": 
+      return {
+        ...state,
+        selectedVideo: action.payload
       }
     default:
       return state

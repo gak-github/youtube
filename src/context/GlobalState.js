@@ -8,18 +8,19 @@ const initialState = {
   term: '',
   error: null,
   loading: true,
+  setSelectedVideo: ''
 };
 
 // Create context
 export const GlobalContext = createContext(initialState);
 
 // provider compoment
-
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
 
   // get video search results (videos)
   async function getVideos(term) {
+    term = term || 'vadivelu commedy';
     try {
       const res = await axios.get(`/.netlify/functions/youtube?search=${term}`);
       dispatch({
@@ -34,6 +35,13 @@ export const GlobalProvider = ({ children }) => {
       })
     }
   }
+
+  function setSelectedVideo(video) {
+    dispatch({
+      type: "SET_SELECTED_VIDEO",
+      payload: video
+    });
+  }
   
   return (
     <GlobalContext.Provider
@@ -42,7 +50,9 @@ export const GlobalProvider = ({ children }) => {
         term: state.term,
         error: state.error,
         loading: state.loading,
-        getVideos,
+        selectedVideo: state.selectedVideo,
+        setSelectedVideo,
+        getVideos
       }}
     >
       {children}

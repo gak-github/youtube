@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
-const VideoItem = ({ videoItem }) => {
+const VideoItem = ({ video }) => {
+  const { setSelectedVideo } = useContext(GlobalContext);
+
+  const onVideoSelect = (video) => {
+    setSelectedVideo(video);
+  };
 
   return (
-      <li>
-        {videoItem}
+      <li onClick= { () => onVideoSelect(video)}>
+        <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title}/>
+        {video.snippet.title}
       </li>
   );
 };

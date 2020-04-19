@@ -13,8 +13,8 @@ function IndexPage() {
       <div className="container">
         <Header />
         <SearchBar />
-        <VideoList />
         <VideoDetail />
+        <VideoList />
       </div>
     </GlobalProvider>
   )
