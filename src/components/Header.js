@@ -1,10 +1,11 @@
 import React from "react";
-// import github from '../images/github-32px.png';
+import SearchBar from './SearchBar';
 
 const Header = () => {
     return (
-        <>
-        </>
+        <header className="header">
+            <SearchBar />
+        </header>
     );
 };
 

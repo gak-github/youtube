@@ -1,21 +1,19 @@
 import React from "react";
-import "../styles/App.css";
+import "../styles/App.scss";
 import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
-import VideoList from "../components/VideoList";
-import VideoDetail from "../components/VideoDetail";
+import SideNav from "../components/SideNav";
+import Main from "../components/Main";
+import Layout from "../components/Layout"
 import { GlobalProvider } from "../context/GlobalState";
 
 function IndexPage() {
   return (
     <GlobalProvider>
-      <Header />
-      <div className="container">
+      <Layout>
         <Header />
-        <SearchBar />
-        <VideoDetail />
-        <VideoList />
-      </div>
+        <SideNav />
+        <Main />
+      </Layout>
     </GlobalProvider>
   )
 }
