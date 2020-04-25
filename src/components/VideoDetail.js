@@ -11,10 +11,8 @@ const VideoDetail = () => {
 
   return (
     <>
-      <div>
-        <iframe key={selectedVideo.id.videoId} src={videoSrc} width="640" height="360" />
-      </div>
-      <div>
+      <div className="video-detail">
+        <iframe title="video player" src={videoSrc} width="640" height="360" gyroscope="true" frameBorder="0" allow="accelerometer" allowFullScreen/>
         <h4> {selectedVideo.snippet.title}</h4>
         <p>{selectedVideo.snippet.description}</p>
       </div>

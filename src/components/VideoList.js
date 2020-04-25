@@ -10,8 +10,7 @@ const VideoList = () => {
   }, []);
   return (
       <>
-          <h3>video VideoList</h3>
-          <ul id="list" className="list">
+          <ul id="list" className="video-list">
               {videos.map(video => (
                   <VideoItem
                       key={video.etag}

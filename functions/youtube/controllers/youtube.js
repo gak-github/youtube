@@ -14,7 +14,7 @@ exports.getVideos = async (req, res, next) => {
         params: {
           q: term,
           part: "snippet",
-          maxResults: 5,
+          maxResults: 6,
           type: "video",
           key: KEY
         }

@@ -9,7 +9,7 @@ const VideoItem = ({ video }) => {
   };
 
   return (
-      <li onClick= { () => onVideoSelect(video)}>
+      <li className="video-item" onClick= { () => onVideoSelect(video)}>
         <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title}/>
         {video.snippet.title}
       </li>

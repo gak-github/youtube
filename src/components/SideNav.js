@@ -4,7 +4,6 @@ export default function SideNav() {
     return (
         <>
             <nav className="sidebar">
-                Navigation
             </nav>
         </>
 
