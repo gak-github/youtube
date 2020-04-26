@@ -11,6 +11,8 @@ const initialState = {
   setSelectedVideo: ''
 };
 
+const DEFAULT_SEARCH = '5 am club';
+
 // Create context
 export const GlobalContext = createContext(initialState);
 
@@ -20,13 +22,13 @@ export const GlobalProvider = ({ children }) => {
 
   // get video search results (videos)
   async function getVideos(term) {
-    term = term || 'vadivelu commedy';
+    term = term || DEFAULT_SEARCH;
     try {
       const res = await axios.get(`/.netlify/functions/youtube?search=${term}`);
       dispatch({
         type: "GET_VIDEOS",
         payload: res.data.data,
-        term: term
+        term: ""
       });
     } catch (error) {
       dispatch({
