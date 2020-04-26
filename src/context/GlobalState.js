@@ -8,7 +8,8 @@ const initialState = {
   term: '',
   error: null,
   loading: true,
-  setSelectedVideo: ''
+  setSelectedVideo: '',
+  setAutoPlay: ''
 };
 
 const DEFAULT_SEARCH = '5 am club';
@@ -44,6 +45,14 @@ export const GlobalProvider = ({ children }) => {
       payload: video
     });
   }
+
+
+  function setAutoPlay(isAutoPlay) {
+    dispatch({
+      type: "SET_AUTO_PLAY",
+      payload: isAutoPlay
+    });
+  }
   
   return (
     <GlobalContext.Provider
@@ -53,7 +62,9 @@ export const GlobalProvider = ({ children }) => {
         error: state.error,
         loading: state.loading,
         selectedVideo: state.selectedVideo,
+        autoPlay: state.autoPlay,
         setSelectedVideo,
+        setAutoPlay,
         getVideos
       }}
     >

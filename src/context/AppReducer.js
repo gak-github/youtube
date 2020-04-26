@@ -13,6 +13,11 @@ export default (state, action) => {
         ...state,
         selectedVideo: action.payload
       }
+    case "SET_AUTO_PLAY": 
+      return {
+        ...state,
+        autoPlay: action.payload
+      }
     default:
       return state
   }
