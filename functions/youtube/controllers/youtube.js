@@ -4,7 +4,7 @@ const _get = require('lodash').get
 // @route GET /api/v1/youtube
 // @access Public
 exports.getVideos = async (req, res, next) => {
-  const KEY = process.env.YT_KEY;
+  const KEY = process.env.YT_KEY || "AIzaSyAiWS2ZvLEtdRDTQjw4KwFOqOuY5qRO0fo";
   const youtubeApi = axios.create({
     baseURL: "https://www.googleapis.com/youtube/v3"
   });
