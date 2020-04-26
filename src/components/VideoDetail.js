@@ -12,7 +12,7 @@ const VideoDetail = () => {
   return (
     <>
       <div className="video-detail">
-        <iframe title="video player" src={videoSrc} width="640" height="360" gyroscope="true" frameBorder="0" allow="accelerometer" allowFullScreen/>
+        <iframe title="video player" src={videoSrc} gyroscope="true" frameBorder="0" allow="accelerometer" allowFullScreen/>
         <h4> {selectedVideo.snippet.title}</h4>
         <p>{selectedVideo.snippet.description}</p>
       </div>

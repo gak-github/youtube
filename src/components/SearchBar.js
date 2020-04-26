@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import searchIcon from '../images/icons/png/magnifying-glass.png';
+
 const SearchBar = () => {
   const { getVideos } = useContext(GlobalContext);
   const [term, setTerm] = useState("");
@@ -13,11 +15,11 @@ const SearchBar = () => {
   };
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <div>
-          <input name="term" onChange={ e => setTerm(e.target.value)} placeholder="Search" />
-          <input type="submit" name="submit" value="Search" />
-        </div>
+      <form onSubmit={onSubmit} className="search">
+          <input className="search__input" name="term" onChange={ e => setTerm(e.target.value)} placeholder="Search videos" />
+          <button className="search__button">
+            <img className="search__icon" src={searchIcon} alt="search icon" onClick={onSubmit} />
+          </button>
       </form>
     </>
   )
