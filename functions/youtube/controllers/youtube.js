@@ -42,7 +42,7 @@ exports.getVideos = async (req, res, next) => {
     // const response = await ytSearch(term, options); // this can be used for debugging purpose instead of using axios
     return res.status(200).json({
       success: true,
-      data: { isTestData: true, videos: _get(response, 'data.items') || [] }
+      data: { isTestData: false, videos: _get(response, 'data.items') || [] }
     });
   } catch(error) {
     // TODO: if headers already sent check
