@@ -1,4 +1,5 @@
-[
+const ytData = () => {
+return [
     {
        "kind":"youtube#searchResult",
        "etag":"\"nxOHAKTVB7baOKsQgTtJIyGxcs8/WRoNJLf71tUFf2HuJIM5-SF3Rsc\"",
@@ -198,3 +199,6 @@
        }
     }
  ]
+}
+
+module.exports = ytData;

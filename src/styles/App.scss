@@ -61,6 +61,17 @@ body {
     align-items: center;
 }
 
+header.warning {
+    background-color: orange;
+    justify-content: center;
+    align-items: center;
+    p {
+        text-align: center;
+        font-weight: 600;
+        color: black;
+    }
+}
+
 .main-view {
     display: flex;
 }
@@ -91,7 +102,6 @@ body {
             margin-right: 5px;
             border-radius: 5px;
         }
-        padding-bottom: 10px;
         border-bottom: 0.5px solid rgb(179, 175, 175);
     }
     &__button:focus {

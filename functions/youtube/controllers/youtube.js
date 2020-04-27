@@ -1,5 +1,5 @@
 const axios = require('axios');
-const _get = require('lodash').get
+const _get = require('lodash').get;
 const ytData = require('../config/yt-data');
 // const ytSearch = require('youtube-search');
 
@@ -7,13 +7,13 @@ const ytData = require('../config/yt-data');
 // @route GET /api/v1/youtube
 // @access Public
 exports.getVideos = async (req, res, next) => {
-  let testData;
+  let testData = ytData();
   const KEY = process.env.YT_KEY;
   // if it is test environment then don't hit actual API to save the daily data quota limit
   if (true) { // !KEY) { for testing without using actual quota
     return res.status(200).json({
       success: true,
-      data: ytData
+      data: { isTestData: true, videos: testData }
     });
   }
 
@@ -42,13 +42,13 @@ exports.getVideos = async (req, res, next) => {
     // const response = await ytSearch(term, options); // this can be used for debugging purpose instead of using axios
     return res.status(200).json({
       success: true,
-      data: _get(response, 'data.items') || []
+      data: { isTestData: true, videos: _get(response, 'data.items') || [] }
     });
   } catch(error) {
-    // TODO: if headers already sent
+    // TODO: if headers already sent check
     return res.status(200).json({ // send test data in case of error
       success: true,
-      data: ytData
+      data: { isTestData: true, videos: testData }
     });
   }
 };

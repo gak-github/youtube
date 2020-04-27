@@ -1,6 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 import axios from "axios";
+const _get = require('lodash').get;
 
 // Initial state
 const initialState = {
@@ -28,13 +29,13 @@ export const GlobalProvider = ({ children }) => {
       const res = await axios.get(`/.netlify/functions/youtube?search=${term}`);
       dispatch({
         type: "GET_VIDEOS",
-        payload: res.data.data,
+        payload: _get(res, 'data.data'),
         term: ""
       });
     } catch (error) {
       dispatch({
         type: "SEARCH_ERROR",
-        payload: error.response.data.error,
+        payload: _get(error, 'response.data.error'),
       })
     }
   }
@@ -63,6 +64,7 @@ export const GlobalProvider = ({ children }) => {
         loading: state.loading,
         selectedVideo: state.selectedVideo,
         autoPlay: state.autoPlay,
+        isTestData: state.isTestData,
         setSelectedVideo,
         setAutoPlay,
         getVideos

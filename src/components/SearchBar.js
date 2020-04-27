@@ -16,7 +16,7 @@ const SearchBar = () => {
   return (
     <>
       <form onSubmit={onSubmit} className="search">
-          <input className="search__input" name="term" onChange={ e => setTerm(e.target.value)} placeholder="Search videos" />
+          <input className="search__input" name="term" onChange={ e => setTerm(e.target.value)} placeholder="Search videos" value={term} />
           <button className="search__button" onClick={onSubmit} >
             <img className="search__icon" src={searchIcon} alt="search icon" />
           </button>
