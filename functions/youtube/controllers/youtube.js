@@ -9,8 +9,8 @@ const ytData = require('../config/yt-data');
 exports.getVideos = async (req, res, next) => {
   let testData = ytData();
   const KEY = process.env.YT_KEY;
-  // if it is test environment then don't hit actual API to save the daily data quota limit
-  if (true) { // !KEY) { for testing without using actual quota
+  // if it is test environment then don't hit actual API to save the daily data limit
+  if (!KEY) {
     return res.status(200).json({
       success: true,
       data: { isTestData: true, videos: testData }

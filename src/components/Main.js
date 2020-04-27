@@ -10,7 +10,7 @@ export default function Main() {
     return (
         <>
             { isTestData && <header className='warning'>
-                <p>The daily quota for youtube API data has exceeded so your search may not yield new results. Please try again tomorrow to search other videos</p>
+                <p>The daily data limit for youtube API has exceeded now so your search may not yield new results. Please try again tomorrow to search other videos.</p>
                 </header>
             }
             <main className="main-view">
