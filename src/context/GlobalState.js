@@ -13,18 +13,26 @@ const initialState = {
   setAutoPlay: ''
 };
 
-const DEFAULT_SEARCH = '5 am club';
+const getDefaultSearchTerm = () => {
+  const searchItems = ['5 am club', 'sadhguru best speech', 'about paypal', 'john maxwell 5 levels of leadership',
+                          'better running form', 'benefits of running', 'paypal', 'gcn indoor 30min workout', 'vadivelu comedy', 'illayaraja best tamil songs', 'golden retriever puppies funny videos'];
+    const random = Math.floor(Math.random() * Math.floor(searchItems.length));
+    if (random < searchItems.length) {
+      return searchItems[random];
+    }
+    return 'About PayPal';
+};
 
 // Create context
 export const GlobalContext = createContext(initialState);
 
 // provider compoment
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState)
+  const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // get video search results (videos)
   async function getVideos(term) {
-    term = term || DEFAULT_SEARCH;
+    term = term || getDefaultSearchTerm();
     try {
       const res = await axios.get(`/.netlify/functions/youtube?search=${term}`);
       dispatch({
