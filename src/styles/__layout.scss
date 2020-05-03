@@ -1,17 +1,30 @@
-.container {
-    max-width: 120rem;
-    margin: 8rem auto;
-    background-color: var(--color-grey-light-2);
-    box-shadow: 0 2rem 6rem rgba(0,0,.3);
-    min-height: 50rem;
-}
 
 .header {
+    display: flex;
+    font-size: 1.4rem;
     height: 7rem;
-    background-color: red;
-    border-bottom: var(--color-grey-light-2);
+    background-color: rgb(27, 57, 100);
+    border-bottom: 1px solid var(--color-grey-light-4);
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.warning {
+    background-color: orange;
+    justify-content: center;
+    align-items: center;
+    p {
+        text-align: center;
+        font-weight: 600;
+        color: black;
+    }
+}
+
+.main-view {
+    display: flex;
 }
 
 .sidebar {
-    background-color: red;
+    background-color: var (--color-grey-dark-1);
+    flex: 0 0 12%;
 }
